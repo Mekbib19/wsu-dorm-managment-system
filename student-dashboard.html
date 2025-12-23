@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSU Dorm System - Student Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Wolayita Sodo University</h1>
+                    <p>Student Dormitory Portal</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div>
+                    <p>Abebe Kebede</p>
+                    <p style="font-size: 0.8rem;">WSU/0012/2021</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> My Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-home"></i> My Room</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Roommates</a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Fee Payment</a></li>
+                <li><a href="#"><i class="fas fa-tools"></i> Maintenance Request</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="content">
+            <div class="content-header">
+                <h2>Student Dashboard</h2>
+                <p>Welcome back, <strong>Abebe</strong>!</p>
+            </div>
+            
+            <div class="dashboard-cards">
+                <div class="card">
+                    <div class="card-icon student">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Room 104</h3>
+                    <p>Block A, Floor 1</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon room">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>3 Roommates</h3>
+                    <p>Full occupancy</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon vacant">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Current Term</h3>
+                    <p>2023/24 Academic Year</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon maintenance">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>Fee Status</h3>
+                    <p style="color: var(--success); font-weight: 500;">Paid in Full</p>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                <!-- Left Column -->
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">My Room Details</h3>
+                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: var(--border-radius);">
+                        <div style="margin-bottom: 15px;">
+                            <strong>Room Number:</strong> 104<br>
+                            <strong>Building:</strong> Block A<br>
+                            <strong>Floor:</strong> 1st Floor<br>
+                            <strong>Capacity:</strong> 4 students<br>
+                            <strong>Current Occupancy:</strong> 4 students<br>
+                            <strong>Gender:</strong> Male
+                        </div>
+                        <button class="btn btn-primary"><i class="fas fa-edit"></i> Update Profile</button>
+                    </div>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 15px;">Quick Actions</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <button class="btn btn-secondary"><i class="fas fa-tools"></i> Submit Maintenance Request</button>
+                        <button class="btn btn-secondary"><i class="fas fa-print"></i> Print Room Assignment</button>
+                        <button class="btn btn-secondary"><i class="fas fa-question-circle"></i> Request Assistance</button>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">My Roommates</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Student ID</th>
+                                    <th>Department</th>
+                                    <th>Contact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Abebe Kebede (You)</td>
+                                    <td>WSU/0012/2021</td>
+                                    <td>Computer Science</td>
+                                    <td>0911-223344</td>
+                                </tr>
+                                <tr>
+                                    <td>Mikael Asrat</td>
+                                    <td>WSU/0023/2021</td>
+                                    <td>Electrical Eng.</td>
+                                    <td>0922-334455</td>
+                                </tr>
+                                <tr>
+                                    <td>Yonas Hailu</td>
+                                    <td>WSU/0034/2022</td>
+                                    <td>Mechanical Eng.</td>
+                                    <td>0933-445566</td>
+                                </tr>
+                                <tr>
+                                    <td>Samuel Getachew</td>
+                                    <td>WSU/0045/2022</td>
+                                    <td>Civil Engineering</td>
+                                    <td>0944-556677</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 15px;">Important Dates</h3>
+                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: var(--border-radius);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #ddd;">
+                            <span>Room Check-in Deadline</span>
+                            <strong>Sep 15, 2023</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #ddd;">
+                            <span>Semester End</span>
+                            <strong>Jan 12, 2024</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Next Fee Payment</span>
+                            <strong>Dec 1, 2023</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="copyright">
+                <p>&copy; 2023 Wolayita Sodo University - Student Dormitory Portal</p>
+            </div>
+            <div>
+                <p>Need help? <a href="#" style="color: var(--secondary); text-decoration: none;">Contact Dorm Office</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

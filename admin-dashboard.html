@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolayita Sodo University - Dorm Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Wolayita Sodo University</h1>
+                    <p>Dormitory Management System</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div>
+                    <p>Admin User</p>
+                    <p style="font-size: 0.8rem;">Dorm Manager</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" onclick="showTab('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#" onclick="showTab('students')"><i class="fas fa-users"></i> Student Management</a></li>
+                <li><a href="#" onclick="showTab('rooms')"><i class="fas fa-bed"></i> Room Management</a></li>
+                <li><a href="#" onclick="showTab('assign')"><i class="fas fa-key"></i> Room Assignment</a></li>
+                <li><a href="#" onclick="showTab('maintenance')"><i class="fas fa-tools"></i> Maintenance Requests</a></li>
+                <li><a href="#" onclick="showTab('reports')"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#" onclick="showTab('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="content-header">
+                    <h2>Dashboard Overview</h2>
+                    <p>Today: <span id="current-date">October 15, 2023</span></p>
+                </div>
+                
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <div class="card-icon student">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>1,247</h3>
+                        <p>Total Students in Dorms</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon room">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>312</h3>
+                        <p>Rooms Occupied</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon vacant">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <h3>48</h3>
+                        <p>Vacant Rooms Available</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon maintenance">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>12</h3>
+                        <p>Pending Maintenance Requests</p>
+                    </div>
+                </div>
+                
+                <h3 style="margin-bottom: 15px; color: var(--primary);">Recent Room Assignments</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>Room No.</th>
+                                <th>Building</th>
+                                <th>Assignment Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>WSU/0012/2021</td>
+                                <td>Abebe Kebede</td>
+                                <td>104</td>
+                                <td>Block A</td>
+                                <td>Oct 14, 2023</td>
+                                <td><span class="status occupied">Occupied</span></td>
+                            </tr>
+                            <tr>
+                                <td>WSU/0034/2022</td>
+                                <td>Marta Girma</td>
+                                <td>215</td>
+                                <td>Block B</td>
+                                <td>Oct 13, 2023</td>
+                                <td><span class="status occupied">Occupied</span></td>
+                            </tr>
+                            <tr>
+                                <td>WSU/0056/2021</td>
+                                <td>Solomon Tadesse</td>
+                                <td>108</td>
+                                <td>Block A</td>
+                                <td>Oct 12, 2023</td>
+                                <td><span class="status occupied">Occupied</span></td>
+                            </tr>
+                            <tr>
+                                <td>WSU/0078/2023</td>
+                                <td>Hana Mohammed</td>
+                                <td>312</td>
+                                <td>Block C</td>
+                                <td>Oct 10, 2023</td>
+                                <td><span class="status occupied">Occupied</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Student Management Tab -->
+            <div id="students" class="tab-content">
+                <div class="content-header">
+                    <h2>Student Management</h2>
+                    <button class="btn btn-primary" onclick="openStudentForm()"><i class="fas fa-plus"></i> Add New Student</button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Full Name</th>
+                                <th>Department</th>
+                                <th>Year</th>
+                                <th>Phone</th>
+                                <th>Dorm Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>WSU/0012/2021</td>
+                                <td>Abebe Kebede</td>
+                                <td>Computer Science</td>
+                                <td>3rd Year</td>
+                                <td>0911-223344</td>
+                                <td><span class="status occupied">Assigned</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-primary"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-small btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>WSU/0034/2022</td>
+                                <td>Marta Girma</td>
+                                <td>Electrical Engineering</td>
+                                <td>2nd Year</td>
+                                <td>0922-334455</td>
+                                <td><span class="status occupied">Assigned</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-primary"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-small btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>WSU/0099/2023</td>
+                                <td>Dawit Tesfaye</td>
+                                <td>Business Administration</td>
+                                <td>1st Year</td>
+                                <td>0933-445566</td>
+                                <td><span class="status vacant">Not Assigned</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-primary"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-small btn-success"><i class="fas fa-key"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Room Management Tab -->
+            <div id="rooms" class="tab-content">
+                <div class="content-header">
+                    <h2>Room Management</h2>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Add New Room</button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Room No.</th>
+                                <th>Building</th>
+                                <th>Capacity</th>
+                                <th>Occupied</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>101</td>
+                                <td>Block A</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>Male</td>
+                                <td><span class="status occupied">Full</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-primary"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-small btn-success"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>Block A</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>Male</td>
+                                <td><span class="status occupied">Available (1)</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-primary"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-small btn-success"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201</td>
+                                <td>Block B</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>Female</td>
+                                <td><span class="status vacant">Vacant</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-primary"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-small btn-success"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Room Assignment Tab -->
+            <div id="assign" class="tab-content">
+                <div class="content-header">
+                    <h2>Room Assignment</h2>
+                </div>
+                
+                <div style="background-color: #f8f9fa; padding: 20px; border-radius: var(--border-radius); margin-bottom: 30px;">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">Assign Student to Room</h3>
+                    <form id="assignment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="student-select">Select Student</label>
+                                <select id="student-select">
+                                    <option value="">-- Choose Student --</option>
+                                    <option value="WSU/0099/2023">Dawit Tesfaye (Business Admin, 1st Year)</option>
+                                    <option value="WSU/0088/2023">Selamawit Alemu (Chemistry, 1st Year)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="room-select">Select Room</label>
+                                <select id="room-select">
+                                    <option value="">-- Choose Room --</option>
+                                    <option value="201">Block B - Room 201 (Female, Capacity: 2)</option>
+                                    <option value="102">Block A - Room 102 (Male, Available: 1)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-key"></i> Assign Room</button>
+                    </form>
+                </div>
+                
+                <h3 style="margin-bottom: 15px; color: var(--primary);">Recent Assignments</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Assignment ID</th>
+                                <th>Student</th>
+                                <th>Room</th>
+                                <th>Assigned Date</th>
+                                <th>Assigned By</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ASS-00123</td>
+                                <td>Abebe Kebede</td>
+                                <td>Block A, Room 104</td>
+                                <td>Oct 14, 2023</td>
+                                <td>Admin User</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-danger"><i class="fas fa-times"></i> Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Maintenance Requests Tab -->
+            <div id="maintenance" class="tab-content">
+                <div class="content-header">
+                    <h2>Maintenance Requests</h2>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> New Request</button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Room No.</th>
+                                <th>Issue Type</th>
+                                <th>Description</th>
+                                <th>Reported Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MNT-00456</td>
+                                <td>Block A, 101</td>
+                                <td>Plumbing</td>
+                                <td>Leaking faucet in bathroom</td>
+                                <td>Oct 13, 2023</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-success"><i class="fas fa-check"></i> Resolve</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>MNT-00455</td>
+                                <td>Block C, 305</td>
+                                <td>Electrical</td>
+                                <td>Light fixture not working</td>
+                                <td>Oct 12, 2023</td>
+                                <td><span class="status pending">In Progress</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-small btn-success"><i class="fas fa-check"></i> Resolve</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Reports Tab -->
+            <div id="reports" class="tab-content">
+                <div class="content-header">
+                    <h2>Reports & Analytics</h2>
+                    <button class="btn btn-primary"><i class="fas fa-print"></i> Generate Report</button>
+                </div>
+                
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <div class="card-icon student">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Occupancy Rate</h3>
+                        <p>86% of rooms are occupied</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon room">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Monthly Trends</h3>
+                        <p>+5% increase from last month</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon vacant">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3>Fee Collection</h3>
+                        <p>94% of fees collected this semester</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">Dorm Occupancy by Building</h3>
+                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: var(--border-radius);">
+                        <p><strong>Block A:</strong> 98% occupied (156/160 beds)</p>
+                        <div style="height: 20px; background-color: #ddd; border-radius: 10px; margin: 10px 0; overflow: hidden;">
+                            <div style="height: 100%; width: 98%; background-color: var(--primary); border-radius: 10px;"></div>
+                        </div>
+                        
+                        <p><strong>Block B:</strong> 82% occupied (82/100 beds)</p>
+                        <div style="height: 20px; background-color: #ddd; border-radius: 10px; margin: 10px 0; overflow: hidden;">
+                            <div style="height: 100%; width: 82%; background-color: var(--primary); border-radius: 10px;"></div>
+                        </div>
+                        
+                        <p><strong>Block C:</strong> 74% occupied (74/100 beds)</p>
+                        <div style="height: 20px; background-color: #ddd; border-radius: 10px; margin: 10px 0; overflow: hidden;">
+                            <div style="height: 100%; width: 74%; background-color: var(--primary); border-radius: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <div class="content-header">
+                    <h2>System Settings</h2>
+                </div>
+                
+                <div style="max-width: 600px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Dormitory Configuration</h3>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label for="semester-start">Semester Start Date</label>
+                            <input type="date" id="semester-start" value="2023-09-11">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="semester-end">Semester End Date</label>
+                            <input type="date" id="semester-end" value="2024-01-12">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dorm-fee">Dormitory Fee (per semester)</label>
+                            <input type="number" id="dorm-fee" value="1500">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="max-capacity">Maximum Room Capacity</label>
+                            <select id="max-capacity">
+                                <option value="2">2 students per room</option>
+                                <option value="4" selected>4 students per room</option>
+                                <option value="6">6 students per room</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="copyright">
+                <p>&copy; 2023 Wolayita Sodo University - Dormitory Management System. All rights reserved.</p>
+            </div>
+            <div>
+                <p><i class="fas fa-phone"></i> +251 46 331 2345 | <i class="fas fa-envelope"></i> dorm-management@wsu.edu.et</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current date
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+        
+        // Tab switching functionality
+        function showTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update active menu item
+            const menuItems = document.querySelectorAll('.sidebar-menu a');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find and activate the clicked menu item
+            menuItems.forEach(item => {
+                if (item.getAttribute('onclick') === `showTab('${tabId}')`) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Form submission handling
+        document.getElementById('assignment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const studentSelect = document.getElementById('student-select');
+            const roomSelect = document.getElementById('room-select');
+            
+            if (studentSelect.value && roomSelect.value) {
+                alert(`Student assigned to room successfully!`);
+                studentSelect.value = '';
+                roomSelect.value = '';
+            } else {
+                alert('Please select both a student and a room.');
+            }
+        });
+        
+        // Open student form (simulated)
+        function openStudentForm() {
+            alert('Student form would open here. In a full system, this would open a modal or new page for adding student details.');
+        }
+        
+        // Initialize the dashboard as active tab
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('dashboard');
+        });
+    </script>
+</body>
+</html>
