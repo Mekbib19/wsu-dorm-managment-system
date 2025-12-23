@@ -10,6 +10,10 @@
 </head>
 <body>
     <!-- Header -->
+     <!-- Add this after the logo in your admin header -->
+<button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+</button>
     <header>
         <div class="container header-content">
             <div class="logo">
@@ -554,6 +558,30 @@
         document.addEventListener('DOMContentLoaded', function() {
             showTab('dashboard');
         });
+        // Mobile menu toggle for admin dashboard
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            menuToggle.innerHTML = sidebar.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 900) {
+                if (!sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
+                    sidebar.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+    }
+});
     </script>
 </body>
 </html>

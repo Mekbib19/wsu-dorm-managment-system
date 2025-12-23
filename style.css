@@ -1298,3 +1298,243 @@
         min-width: 600px;
     }
 }
+/* ===== ADMIN DASHBOARD RESPONSIVE FIXES ===== */
+
+/* Make sidebar responsive */
+@media (max-width: 992px) {
+    .main-content {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+        position: static;
+        max-height: none;
+    }
+    
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .sidebar-menu li {
+        flex: 1;
+        min-width: 150px;
+    }
+    
+    .sidebar-menu a {
+        justify-content: center;
+        text-align: center;
+        padding: 12px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .sidebar-menu a.active {
+        border-left: none;
+        border-bottom: 3px solid var(--primary);
+    }
+    
+    .sidebar-menu i {
+        margin-right: 8px;
+    }
+    
+    .dashboard-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header responsive for admin */
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.4rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.8rem;
+    }
+    
+    .user-info {
+        align-self: center;
+        margin-top: 5px;
+    }
+    
+    /* Sidebar menu becomes vertical on very small screens */
+    .sidebar-menu {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .sidebar-menu li {
+        min-width: 100%;
+    }
+    
+    .sidebar-menu a {
+        justify-content: flex-start;
+        text-align: left;
+    }
+    
+    /* Content area */
+    .content {
+        padding: 20px;
+    }
+    
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .content-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    /* Dashboard cards */
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .card h3 {
+        font-size: 1.6rem;
+    }
+    
+    /* Tables */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        min-width: 600px; /* Ensures horizontal scroll on small screens */
+    }
+    
+    table th, table td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* Buttons */
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .btn-small {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.2rem;
+    }
+    
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    .content-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .status {
+        min-width: 70px;
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+}
+
+/* Fix for mobile menu toggle on admin page */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        margin-left: auto;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+    }
+    
+    .menu-toggle {
+        order: 2;
+    }
+    
+    .logo {
+        order: 1;
+        flex: 1;
+    }
+    
+    .user-info {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
