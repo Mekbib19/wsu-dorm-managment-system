@@ -1599,3 +1599,260 @@ header {
     top: 0;
     z-index: 1001;
 }
+/* ===== STUDENT PORTAL SPECIFIC STYLES ===== */
+
+/* Student Dashboard Grid Layout */
+.student-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.dashboard-column h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+}
+
+/* Info Card Styles */
+.info-card {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.room-details p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Date Items */
+.dates-card {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+.date-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.date-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Responsive Styles for Student Portal */
+@media (max-width: 992px) {
+    .student-dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .dashboard-column h3 {
+        font-size: 1.1rem;
+    }
+    
+    .info-card, .dates-card {
+        padding: 15px;
+    }
+    
+    /* Improve button spacing on mobile */
+    .quick-actions .btn {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    /* Adjust table for mobile */
+    .table-container table {
+        min-width: 500px;
+    }
+    
+    .table-container {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust dashboard cards for mobile */
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .card {
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .card-icon {
+        margin: 0 auto 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .card h3 {
+        font-size: 1.4rem;
+    }
+    
+    /* Improve content spacing */
+    .content {
+        padding: 20px;
+    }
+    
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .content-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    /* Better table display on mobile */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table th, table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust button sizes */
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .student-dashboard-grid {
+        margin-top: 20px;
+        gap: 15px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.3rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.8rem;
+    }
+    
+    .user-info {
+        font-size: 0.9rem;
+    }
+    
+    /* Improve footer for mobile */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .footer-content p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 380px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.1rem;
+    }
+    
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .content-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .card h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Make buttons full width */
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Fix for mobile menu on student portal */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        font-size: 1.4rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .menu-toggle {
+        order: 2;
+    }
+    
+    .logo {
+        order: 1;
+        flex: 1;
+    }
+    
+    .user-info {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        display: flex;
+    }
+}
