@@ -1,0 +1,161 @@
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--light-bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1280px; margin: 0 auto; }
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99,102,241,0.15);
+        }
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 8px 0;
+        }
+        .stat-label {
+            color: var(--muted);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .section {
+            margin-bottom: 48px;
+        }
+        .section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover { background: #f8f9fa; }
+        .announce-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .announce-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        .announce-date {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+        input[type="text"], select {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover { background: var(--primary-dark); }
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .quick-link {
+            padding: 14px 24px;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .quick-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .logout { color: var(--danger); }
+        .logout:hover { background: var(--danger); color: white; }
+  

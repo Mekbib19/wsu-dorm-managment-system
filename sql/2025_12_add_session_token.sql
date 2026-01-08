@@ -1,0 +1,7 @@
+-- (DEPRECATED) Migration that was added for session_token support.
+-- You can remove this file if you no longer want persistent token-based sessions.
+-- Original contents:
+-- ALTER TABLE students
+--   ADD COLUMN session_token VARCHAR(64) DEFAULT NULL;
+--
+-- CREATE INDEX idx_students_session_token ON students(session_token);
